@@ -2,6 +2,7 @@
 
 Dot Grid Moods v1.0.1 asosida: 11,5 soniya, 1920×1080, 30 fps.
 Fon: yumshoq sutrang `#F7F2E8`. Chapda beshta ta’m, o‘ngda mos ichimlik.
+Ichimliklar yumaloq fonning markazida, atrofida bo‘sh joy qoldirib joylashtirilgan.
 Logo yuqorida, maskot pastki o‘ng burchakda. Ovoz va musiqa qo‘shilmagan.
 
 ## Yozuvlar
