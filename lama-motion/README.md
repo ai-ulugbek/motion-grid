@@ -22,7 +22,8 @@ repozitoriyga kiritilmagan.
 
 Matn va rang:
 
-- Matn rangi logo faylidagi asosiy rangga mos: `#FF5266`.
+- Ta’m nomlari qora rangda: `#000000`.
+- Shiorlar logo faylidagi asosiy rangga mos: `#FF5266`.
 - Logo ostida: `Not Just Tea`.
 - Yakunda: `Not Jus Tea` — foydalanuvchining so‘nggi yozuviga mos, bosh-kichik harflar bilan.
 - Yakunda ichimlik, yumaloq fon, ro‘yxat va maskot yo‘qoladi. LAMA logosi kattalashib,

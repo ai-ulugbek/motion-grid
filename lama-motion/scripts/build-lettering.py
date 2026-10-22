@@ -91,6 +91,7 @@ def main():
     parser.add_argument("font", type=Path)
     parser.add_argument("--tagline-font", type=Path, default=Path(__file__).resolve().parents[1] / "assets/fonts/DynaPuff.ttf")
     parser.add_argument("--color", default="#FF5266")
+    parser.add_argument("--flavor-color", default="#000000")
     parser.add_argument("--out", type=Path, default=Path(__file__).resolve().parents[1] / "assets/lettering")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
@@ -99,7 +100,7 @@ def main():
         if slug in ("tagline", "outro"):
             svg = make_svg(args.tagline_font, text, args.color, expected_family="DynaPuff")
         else:
-            svg = make_svg(args.font, text, args.color)
+            svg = make_svg(args.font, text, args.flavor_color)
         target.write_text(svg, encoding="utf-8")
         print(f"{target.name}: {text}")
 

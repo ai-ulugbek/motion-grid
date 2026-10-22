@@ -14,7 +14,7 @@ Ichimliklar va maskot shaffof PNG’lardan joylashtirilgan.
 
 Ta’mlar: OREO, BANAN & XURMO, MARAKUYA, MATCHA, ANANAS.
 
-Ta’m nomlari: **Bubbly Humble**, logo rangida (`#FF5266`). Shior **DynaPuff Bold**
+Ta’m nomlari: **Bubbly Humble**, qora rangda (`#000000`). Shior logo rangida (`#FF5266`), **DynaPuff Bold**
 shriftida bosh-kichik harflarda yozilgan. Logo ostida **Not Just Tea**, yakunda esa
 **Not Jus Tea** ko‘rinadi. Yakunda ichimliklar, dumaloq fon va maskot yo‘qoladi;
 markazda LAMA logosi va shior taxminan ekran kengligining 70%ini egallaydi.

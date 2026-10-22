@@ -6,6 +6,7 @@
   "fps": 30,
   "background": "#F7F2E8",
   "brandColor": "#FF5266",
+  "flavorColor": "#000000",
   "tagline": "Not Just Tea",
   "outro": "Not Jus Tea",
   "outroWidthPercent": 70,
