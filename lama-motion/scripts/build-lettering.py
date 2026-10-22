@@ -22,7 +22,7 @@ LABELS = {
     "matcha": "MATCHA",
     "ananas": "ANANAS",
     "tagline": "Not Just Tea",
-    "outro": "Not Just Tea",
+    "outro": "Not Jus Tea",
 }
 
 

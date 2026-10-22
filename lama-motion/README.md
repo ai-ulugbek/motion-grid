@@ -24,8 +24,9 @@ Matn va rang:
 
 - Matn rangi logo faylidagi asosiy rangga mos: `#FF5266`.
 - Logo ostida: `Not Just Tea`.
-- Yakunda: `Not Just Tea` — bosh-kichik harflar bilan.
-- Yakuniy sahnada LAMA logosi yuqoridan pastga tushib, shiorning tepasida markazlashadi.
+- Yakunda: `Not Jus Tea` — foydalanuvchining so‘nggi yozuviga mos, bosh-kichik harflar bilan.
+- Yakunda ichimlik, yumaloq fon, ro‘yxat va maskot yo‘qoladi. LAMA logosi kattalashib,
+  ekran markaziga keladi; ostidagi shior 1344 px kenglikda, ya’ni ekran kengligining 70%ida joylashadi.
 
 Yozuv matnlarini almashtirish uchun `scripts/build-lettering.py` ichidagi `LABELS`
 qiymatlarini o‘zgartiring va o‘zingizdagi asl shrift fayli bilan qayta yarating.
@@ -47,7 +48,7 @@ HTMLdagi `alt` matnlarini va `content.json` ma’lumotlarini ham moslang.
 | 5–6,5 s | MARAKUYA |
 | 6,5–8 s | MATCHA |
 | 8–9,5 s | ANANAS |
-| 9,5–11,5 s | LAMA logosi pastga tushadi, ostida Not Just Tea paydo bo‘ladi; oxirgi ichimlik va maskot qoladi |
+| 9,5–11,5 s | Mahsulot sahnasi yo‘qoladi, markazda katta LAMA logosi va Not Jus Tea yozuvi bilan yakun |
 
 ## Materiallar
 
