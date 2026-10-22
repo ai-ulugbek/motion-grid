@@ -1,0 +1,17 @@
+{
+  "title": "LAMA · Bubble Tea",
+  "durationSeconds": 11.5,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "background": "#F7F2E8",
+  "logo": "assets/logo.png",
+  "mascot": "assets/mascot.jpg",
+  "flavors": [
+    { "name": "OREO", "image": "assets/oreo.png", "start": 2.0 },
+    { "name": "BANAN & XURMO", "image": "assets/banan-xurmo.jpg", "start": 3.5 },
+    { "name": "MARAKUYA", "image": "assets/marakuya.jpg", "start": 5.0 },
+    { "name": "MATCHA", "image": "assets/matcha.jpg", "start": 6.5 },
+    { "name": "ANANAS", "image": "assets/ananas.jpg", "start": 8.0 }
+  ]
+}

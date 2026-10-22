@@ -1,0 +1,48 @@
+{
+  "slug": "bs-launchmotion-type-demonstrate-parameter-system",
+  "title": "Dot Grid Moods",
+  "mode": "light",
+  "durationSeconds": 11.5,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "slots": {
+    "headline": "One grid. Six moods.",
+    "panel-title": "Motion settings",
+    "mode-1": "Pulse",
+    "mode-2": "Weight",
+    "mode-3": "Space",
+    "mode-4": "Bounce",
+    "mode-5": "Contrast",
+    "mode-6": "Color",
+    "desc-1": "Waves ripple out from the center.",
+    "desc-2": "A heavy band rises and falls.",
+    "desc-3": "Focus gathers inside open space.",
+    "desc-4": "One ring pops with a spring.",
+    "desc-5": "Big meets small across a line.",
+    "desc-6": "Every dot picks up a shade of blue.",
+    "outro": "Tune the feel. Not the code."
+  },
+  "limits": {
+    "headline": 24,
+    "panel-title": 20,
+    "mode-1": 12,
+    "mode-2": 12,
+    "mode-3": 12,
+    "mode-4": 12,
+    "mode-5": 12,
+    "mode-6": 12,
+    "desc-1": 38,
+    "desc-2": 38,
+    "desc-3": 38,
+    "desc-4": 38,
+    "desc-5": 38,
+    "desc-6": 38,
+    "outro": 32
+  },
+  "notes": {
+    "headline": "last two words render in the blue gradient span",
+    "outro": "last three words render in the blue gradient span"
+  },
+  "logos": []
+}

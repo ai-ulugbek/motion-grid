@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>Dot Grid Moods</title>
+<script src="vendor/gsap.min.js"></script>
+<style>
+@font-face { font-family: "Inter LM"; src: url("assets/inter.woff2") format("woff2"); font-weight: 100 900; }
+:root {
+  --bg: #F4F6FA; --surface: #FFFFFF; --line: #E3E8F0; --ink: #0B1220; --muted: #667085; --faint: #98A2B3;
+  --b50: #EAF1FF; --b100: #C9DAFF; --b200: #8FB2FF; --b300: #4D8DFF; --blue: #2F6BFF; --b600: #1D4ED8; --b700: #1638A8;
+  --font: "Inter LM", Inter, system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }
+#main { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--font); color: var(--ink);
+  background: var(--bg); -webkit-font-smoothing: antialiased; }
+.abs { position: absolute; }
+.layer { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+#glow { background: radial-gradient(1000px 700px at 68% 50%, rgba(47,107,255,0.10), transparent 70%),
+                    radial-gradient(900px 600px at 0% 0%, rgba(47,107,255,0.06), transparent 70%); }
+#grid { background-image: linear-gradient(rgba(15,23,42,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.045) 1px, transparent 1px);
+  background-size: 64px 64px; background-position: -1px -1px;
+  -webkit-mask-image: radial-gradient(900px 560px at 50% 50%, black, transparent 75%); mask-image: radial-gradient(900px 560px at 50% 50%, black, transparent 75%); }
+.w { display: inline-block; opacity: 0; }
+.grad { background: linear-gradient(100deg, var(--b600) 0%, var(--blue) 45%, var(--b300) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+#headline { left: 0; top: 448px; width: 1920px; text-align: center; font-size: 120px; line-height: 132px; font-weight: 600; letter-spacing: -0.045em; }
+
+/* left: settings list */
+#panel { left: 170px; top: 0; width: 640px; height: 1080px; }
+#eyebrow { left: 0; top: 232px; width: 560px; display: flex; justify-content: space-between; align-items: baseline; opacity: 0; }
+#eyebrow span:first-child { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+#counter { font-size: 24px; color: var(--muted); font-variant-numeric: tabular-nums; }
+#hl { left: -24px; top: 296px; width: 560px; height: 80px; border-radius: 22px; background: var(--surface); opacity: 0;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.05), 0 18px 40px -22px rgba(29,78,216,0.45); border: 1px solid #DCE6FA; }
+#hl::before { content: ""; position: absolute; left: 14px; top: 20px; width: 6px; height: 40px; border-radius: 3px; background: var(--blue); }
+.row { left: 20px; height: 80px; width: 520px; font-size: 56px; line-height: 80px; font-weight: 600; letter-spacing: -0.035em; color: #B9C1CE; opacity: 0; }
+#desc-wrap { left: 0; top: 806px; width: 600px; height: 80px; }
+.desc { position: absolute; left: 0; top: 0; width: 600px; font-size: 30px; line-height: 40px; color: var(--muted); letter-spacing: -0.015em; opacity: 0; }
+
+/* right: dot field */
+#field { left: 880px; top: 120px; width: 840px; height: 840px; }
+#halo { left: 940px; top: 180px; width: 720px; height: 720px; border-radius: 50%; opacity: 0;
+  background: radial-gradient(circle, rgba(47,107,255,0.16), rgba(47,107,255,0) 68%); }
+
+#outro { left: 0; top: 884px; width: 1920px; text-align: center; font-size: 56px; line-height: 68px; font-weight: 600; letter-spacing: -0.035em; }
+</style>
+</head>
+<body>
+<div id="main" data-composition-id="main" data-start="0" data-duration="11.5" data-width="1920" data-height="1080">
+  <div id="glow" class="layer"></div>
+  <div id="grid" class="layer"></div>
+
+  <div id="headline" class="abs" data-slot="headline">One grid. <span class="grad">Six moods.</span></div>
+
+  <div id="panel" class="abs">
+    <div id="eyebrow" class="abs"><span data-slot="panel-title">Motion settings</span><span id="counter">01 / 06</span></div>
+    <div id="hl" class="abs"></div>
+    <div class="row abs" style="top:296px" data-slot="mode-1">Pulse</div>
+    <div class="row abs" style="top:376px" data-slot="mode-2">Weight</div>
+    <div class="row abs" style="top:456px" data-slot="mode-3">Space</div>
+    <div class="row abs" style="top:536px" data-slot="mode-4">Bounce</div>
+    <div class="row abs" style="top:616px" data-slot="mode-5">Contrast</div>
+    <div class="row abs" style="top:696px" data-slot="mode-6">Color</div>
+    <div id="desc-wrap" class="abs">
+      <div class="desc" data-slot="desc-1">Waves ripple out from the center.</div>
+      <div class="desc" data-slot="desc-2">A heavy band rises and falls.</div>
+      <div class="desc" data-slot="desc-3">Focus gathers inside open space.</div>
+      <div class="desc" data-slot="desc-4">One ring pops with a spring.</div>
+      <div class="desc" data-slot="desc-5">Big meets small across a line.</div>
+      <div class="desc" data-slot="desc-6">Every dot picks up a shade of blue.</div>
+    </div>
+  </div>
+
+  <div id="halo" class="abs"></div>
+  <canvas id="field" class="abs" width="840" height="840"></canvas>
+
+  <div id="outro" class="abs" data-slot="outro">Tune the feel. <span class="grad">Not the code.</span></div>
+</div>
+
+<script>
+const DUR = 11.5;
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const tl = gsap.timeline({ paused: true });
+window.__timelines = window.__timelines || {};
+window.__timelines["main"] = tl;
+tl.set({}, {}, DUR);
+
+function splitWords(el) {
+  const out = [];
+  [...el.childNodes].forEach(node => {
+    const isText = node.nodeType === 3;
+    const frag = document.createDocumentFragment();
+    node.textContent.split(/(\s+)/).forEach(p => {
+      if (!p) return;
+      if (/^\s+$/.test(p)) { frag.append(' '); return; }
+      const s = document.createElement('span'); s.className = 'w' + (isText ? '' : ' ' + node.className); s.textContent = p; frag.append(s); out.push(s);
+    });
+    el.replaceChild(frag, node);
+  });
+  return out;
+}
+
+// ── mode schedule
+const M0 = 2.5, MD = 1.25;                      // first mode starts, each mode lasts
+const A = i => M0 + i * MD;
+const N = 6;
+
+// ── dot field (pure function of time, drawn on every timeline update)
+const counter = $('#counter');
+const cv = $('#field'), ctx = cv.getContext('2d');
+const CX = 420, CY = 420, R = 378, RINGS = 12, SP = R / RINGS, BASE = 3.4;
+const BLUES = ['#1638A8', '#1D4ED8', '#2F6BFF', '#4D8DFF', '#8FB2FF', '#2F6BFF', '#1D4ED8'];
+const dots = [];
+for (let k = 0; k <= RINGS; k++) {
+  const r = k * SP, n = k === 0 ? 1 : Math.round(2 * Math.PI * r / 29);
+  for (let j = 0; j < n; j++) {
+    const a = (j / n) * Math.PI * 2 + (k % 2) * (Math.PI / n);
+    const h = Math.abs(Math.sin(k * 91.7 + j * 12.9898) * 43758.5453) % 1;
+    dots.push({ x: Math.cos(a) * r, y: Math.sin(a) * r, r, k, h, c: BLUES[Math.floor(h * BLUES.length)] });
+  }
+}
+const eo = gsap.parseEase('expo.out'), el = gsap.parseEase('elastic.out(1.2,0.35)'), sio = gsap.parseEase('sine.inOut');
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+// envelope of a mode: eases in over 0.35 s, eases out over 0.35 s
+const env = (t, i, last) => {
+  const a = A(i), b = a + MD;
+  const up = eo(clamp((t - a + 0.1) / 0.45));
+  const down = last ? 1 : 1 - sio(clamp((t - b + 0.2) / 0.4));
+  return up * down;
+};
+const hex = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+const INK = hex('#0B1220');
+const mix = (a, b, p) => `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * p)).join(',')})`;
+
+function draw(t) {
+  const ci = Math.max(0, Math.min(N - 1, Math.floor((t - A(0) + 0.05) / MD)));
+  const ct = String(ci + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0');
+  if (counter.textContent !== ct) counter.textContent = ct;
+  ctx.clearRect(0, 0, 840, 840);
+  const e = [0, 1, 2, 3, 4, 5].map(i => env(t, i, i === 5));
+  for (const d of dots) {
+    // assemble from the centre outwards
+    const born = 1.55 + (d.k / RINGS) * 0.75 + d.h * 0.08;
+    const s0 = el(clamp((t - born) / 0.7));
+    let rad = BASE * s0;
+    let col = INK, cp = 0;
+    if (s0 > 0) {
+      // 1 pulse: radial ripples
+      if (e[0]) rad += e[0] * 6.5 * Math.pow(Math.max(0, Math.sin(2 * Math.PI * (d.r / 150 - (t - A(0)) * 1.15))), 2);
+      // 2 weight: a heavy band bobbing up and down
+      if (e[1]) { const yc = 190 * Math.sin((t - A(1)) * 3.4 - 0.4); rad += e[1] * 8.5 * Math.exp(-Math.pow((d.y - yc) / 34, 2)); }
+      // 3 space: a dense core inside a void
+      if (e[2]) { const core = 1 - clamp((d.r - 70) / 30), voidK = clamp((d.r - 70) / 30) * (1 - clamp((d.r - 220) / 30));
+        rad += e[2] * (core * 9 - voidK * rad * 0.92); }
+      // 4 bounce: one ring springs up with overshoot
+      if (e[3]) { const p = el(clamp((t - A(3) - 0.05) / 1.0)); rad += e[3] * p * 9 * Math.exp(-Math.pow((d.r - 220) / 20, 2)); }
+      // 5 contrast: a dividing line sweeps across, big on one side, small on the other
+      if (e[4]) { const sx = 340 * Math.sin(sio(clamp((t - A(4)) / 1.15)) * Math.PI * 1.5 - Math.PI / 2); const side = Math.tanh((sx - d.x) / 22);
+        rad += e[4] * (side > 0 ? side * 5.5 : side * rad * 0.6); }
+      // 6 colour: a radial wave tints every dot blue and fattens it
+      if (e[5]) { const front = (t - A(5)) * 520; cp = e[5] * clamp((front - d.r) / 70); rad += cp * (2.6 + d.h * 4.2 + 1.1 * Math.sin(t * 3.2 - d.r / 45)); }
+    }
+    if (rad <= 0.05) continue;
+    ctx.fillStyle = cp > 0 ? mix(INK, hex(d.c), cp) : '#0B1220';
+    ctx.beginPath(); ctx.arc(CX + d.x, CY + d.y, rad, 0, Math.PI * 2); ctx.fill();
+  }
+}
+const clock = { t: 0 };
+tl.fromTo(clock, { t: 0 }, { t: DUR, duration: DUR, ease: 'none', immediateRender: true, onUpdate: () => draw(clock.t) }, 0);
+draw(0);
+
+// ── S1 · 0.0–1.5 · headline
+tl.fromTo(splitWords($('#headline')), { opacity: 0, y: 34, filter: 'blur(16px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out', stagger: 0.08 }, 0.1);
+tl.fromTo('#headline', { scale: 1 }, { scale: 1.035, duration: 1.4, ease: 'none' }, 0.1);
+tl.to('#headline', { opacity: 0, y: -60, filter: 'blur(14px)', duration: 0.5, ease: 'power3.in' }, 1.25);
+
+// ── S2 · 1.5–2.5 · dots assemble, list stacks in
+tl.fromTo('#halo', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 1.4, ease: 'expo.out' }, 1.6);
+tl.fromTo('#eyebrow', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, 1.75);
+tl.fromTo('.row', { opacity: 0, y: 30, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out', stagger: 0.07 }, 1.8);
+tl.fromTo('#hl', { opacity: 0, scaleX: 0.9 }, { opacity: 1, scaleX: 1, duration: 0.6, ease: 'expo.out', transformOrigin: '0% 50%' }, 2.35);
+
+// ── S3 · 2.5–10.0 · highlight walks down the list; each mode plays on the field
+const rows = $$('.row'), descs = $$('.desc');
+for (let i = 0; i < N; i++) {
+  const t = A(i);
+  if (i > 0) {
+    tl.to('#hl', { y: i * 80, duration: 0.5, ease: 'expo.inOut' }, t - 0.15);
+    tl.to(rows[i - 1], { color: '#B9C1CE', x: 0, duration: 0.35, ease: 'power2.out' }, t - 0.1);
+    tl.to(descs[i - 1], { opacity: 0, y: -14, duration: 0.25, ease: 'power3.in' }, t - 0.2);
+  }
+  tl.to(rows[i], { color: '#0B1220', x: 22, duration: 0.45, ease: 'expo.out' }, t + 0.05);
+  tl.fromTo(descs[i], { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'expo.out' }, t + 0.1);
+  tl.fromTo(counter, { opacity: 0.35 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, t);
+}
+
+// ── S4 · 10.0–11.0 · settle: list steps aside, the coloured field takes centre stage
+tl.to(['#eyebrow', '#hl', '.row', '.desc'], { opacity: 0, x: -50, filter: 'blur(8px)', duration: 0.5, ease: 'power3.in', stagger: 0.02 }, 9.75);
+tl.to(['#field', '#halo'], { x: 960 - 1300, y: -80, scale: 0.86, duration: 0.95, ease: 'expo.inOut' }, 9.85);
+tl.fromTo(splitWords($('#outro')), { opacity: 0, y: 26, filter: 'blur(12px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out', stagger: 0.07 }, 10.2);
+</script>
+</body>
+</html>
