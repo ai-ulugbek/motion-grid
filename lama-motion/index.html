@@ -11,33 +11,36 @@
 html,body{width:1920px;height:1080px;overflow:hidden;background:#F7F2E8}
 #main{position:relative;width:1920px;height:1080px;overflow:hidden;color:#302B27;font-family:Inter,sans-serif;background:radial-gradient(ellipse at 73% 48%,#fffcf6 0%,#F7F2E8 65%)}
 #logo{position:absolute;left:136px;top:55px;width:245px;height:165px;overflow:visible}
-#title{position:absolute;left:140px;top:222px;font-size:24px;font-weight:500;letter-spacing:.18em;color:#8B8074}
+#title{position:absolute;left:140px;top:222px;height:36px;color:#FF5266}
+#title img{display:block;height:100%;width:auto}
 #list{position:absolute;left:140px;top:305px;width:730px}
 #highlight{position:absolute;left:-28px;top:0;width:738px;height:100px;background:#fffaf3;border:1px solid #E7DDD0;border-radius:26px;box-shadow:0 14px 40px #8063460d;opacity:0}
-#highlight:before{content:'';position:absolute;left:16px;top:31px;height:38px;width:4px;border-radius:4px;background:#FF4D69}
-.row{position:relative;display:flex;align-items:center;gap:28px;height:100px;margin-bottom:10px;white-space:nowrap;opacity:.46}
+#highlight:before{content:'';position:absolute;left:16px;top:31px;height:38px;width:4px;border-radius:4px;background:#FF5266}
+.row{position:relative;display:flex;align-items:center;gap:28px;height:100px;margin-bottom:10px;white-space:nowrap;opacity:1}
 .number{width:38px;font-size:20px;font-variant-numeric:tabular-nums;opacity:.6}
-.name{font-size:53px;line-height:1.12;font-weight:650;letter-spacing:-.045em}
+.name{height:55px;display:flex;align-items:center;color:#FF5266}
+.name img{display:block;height:100%;width:auto;max-width:625px;object-fit:contain;object-position:left center}
 #stage{position:absolute;left:1000px;top:130px;width:680px;height:790px}
 #stage:before{content:'';position:absolute;left:-46px;top:48px;width:770px;height:700px;border-radius:50%;background:#EFE6D8}
 .drink{position:absolute;left:62px;top:0;width:540px;height:790px;opacity:0;filter:drop-shadow(0 26px 22px #66544322)}
 .drink img{width:100%;height:100%;object-fit:contain;object-position:50% 50%;display:block}
 #mascot{position:absolute;right:77px;bottom:46px;width:180px;height:198px;object-fit:contain;transform-origin:50% 100%}
-#final{position:absolute;left:140px;bottom:110px;font-size:74px;font-weight:650;letter-spacing:-.05em;opacity:0}
+#final{position:absolute;left:140px;bottom:110px;height:80px;opacity:0;color:#FF5266}
+#final img{display:block;height:100%;width:auto;max-width:800px;object-fit:contain;object-position:left center}
 #counter{position:absolute;left:144px;bottom:92px;font-size:18px;letter-spacing:.12em;color:#6D6258}
 </style>
 </head>
 <body>
 <main id="main" data-composition-id="main" data-start="0" data-duration="11.5" data-width="1920" data-height="1080" data-fps="30">
 <svg id="logo" viewBox="350 1000 3850 2200" role="img" aria-label="LAMA"><image href="assets/logo.png" width="4500" height="4500"/></svg>
-<div id="title">BUBBLE TEA</div>
+<div id="title"><img src="assets/lettering/tagline.svg" alt="Not Just Tea"></div>
 <div id="list">
   <div id="highlight"></div>
-  <div class="row"><span class="number">01</span><span class="name">OREO</span></div>
-  <div class="row"><span class="number">02</span><span class="name">BANAN &amp; XURMO</span></div>
-  <div class="row"><span class="number">03</span><span class="name">MARAKUYA</span></div>
-  <div class="row"><span class="number">04</span><span class="name">MATCHA</span></div>
-  <div class="row"><span class="number">05</span><span class="name">ANANAS</span></div>
+  <div class="row"><span class="number">01</span><span class="name"><img src="assets/lettering/oreo.svg" alt="OREO"></span></div>
+  <div class="row"><span class="number">02</span><span class="name"><img src="assets/lettering/banan-xurmo.svg" alt="BANAN &amp; XURMO"></span></div>
+  <div class="row"><span class="number">03</span><span class="name"><img src="assets/lettering/marakuya.svg" alt="MARAKUYA"></span></div>
+  <div class="row"><span class="number">04</span><span class="name"><img src="assets/lettering/matcha.svg" alt="MATCHA"></span></div>
+  <div class="row"><span class="number">05</span><span class="name"><img src="assets/lettering/ananas.svg" alt="ANANAS"></span></div>
 </div>
 <div id="stage">
   <div class="drink"><img src="assets/transparent/oreo.png" alt="OREO bubble tea"></div>
@@ -48,7 +51,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F7F2E8}
 </div>
 <img id="mascot" src="assets/transparent/mascot.png" alt="LAMA maskoti">
 <div id="counter">01 / 05</div>
-<div id="final">LAMA · Bubble Tea</div>
+<div id="final"><img src="assets/lettering/outro.svg" alt="Not Jus Tea"></div>
 </main>
 <script>
 const tl=gsap.timeline({paused:true});
@@ -56,7 +59,7 @@ window.__timelines={main:tl};
 const rows=[...document.querySelectorAll('.row')];
 const drinks=[...document.querySelectorAll('.drink')];
 tl.set({}, {}, 11.5);
-tl.set(rows,{opacity:.46});
+tl.set(rows,{opacity:1});
 tl.set('#highlight',{opacity:0});
 tl.from('#logo',{opacity:0,y:18,duration:.7,ease:'expo.out'},.1);
 tl.from('#title',{opacity:0,y:12,duration:.6},.4);
@@ -71,7 +74,7 @@ for(let i=0;i<5;i++){
   tl.fromTo(drinks[i],{opacity:0,y:45,scale:.94,rotation:3},{opacity:1,y:0,scale:1,rotation:0,duration:.55,ease:'back.out(1.15)'},start);
   tl.set('#counter',{textContent:String(i+1).padStart(2,'0')+' / 05'},start);
   if(i>0){
-    tl.to(rows[i-1],{opacity:.46,x:0,duration:.3},start);
+    tl.to(rows[i-1],{opacity:1,x:0,duration:.3},start);
     tl.to(drinks[i-1],{opacity:0,y:-28,scale:.98,duration:.25},start);
   }
 }

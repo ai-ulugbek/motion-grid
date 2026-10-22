@@ -4,6 +4,31 @@ Dot Grid Moods v1.0.1 asosida: 11,5 soniya, 1920×1080, 30 fps.
 Fon: yumshoq sutrang `#F7F2E8`. Chapda beshta ta’m, o‘ngda mos ichimlik.
 Logo yuqorida, maskot pastki o‘ng burchakda. Ovoz va musiqa qo‘shilmagan.
 
+## Yozuvlar
+
+Foydalanuvchi tanlagan shrift — **Bubbly Humble**, Minimalist Eyes.
+Rasmiy manba: https://www.creativefabrica.com/product/bubbly-humble/.
+Foydalanuvchi yuborgan `Bubbly-Humble-149666812.zip` arxividagi asl OTF fayli ishlatilgan.
+Ta’m nomlari, logo ostidagi yozuv va yakuniy yozuv HarfBuzz orqali shakllantirilgan va
+`assets/lettering/` ichida SVG konturlar sifatida saqlangan. Shu sabab qayta render
+uchun alohida shrift o‘rnatish kerak emas. Asl shrift fayli repozitoriyga kiritilmagan.
+
+Matn va rang:
+
+- Matn rangi logo faylidagi asosiy rangga mos: `#FF5266`.
+- Logo ostida: `Not Just Tea`.
+- Yakunda: `Not Jus Tea` — foydalanuvchi aynan shunday yozgan.
+
+Yozuv matnlarini almashtirish uchun `scripts/build-lettering.py` ichidagi `LABELS`
+qiymatlarini o‘zgartiring va o‘zingizdagi asl shrift fayli bilan qayta yarating.
+Skript uchun Python, `fonttools` va `uharfbuzz` kerak. Misol:
+
+```sh
+python lama-motion/scripts/build-lettering.py /path/to/Bubbly-Humble.otf
+```
+
+HTMLdagi `alt` matnlarini va `content.json` ma’lumotlarini ham moslang.
+
 ## Ssenariy
 
 | Vaqt | Sahna |
@@ -45,7 +70,7 @@ Kadrlarni tekshirish:
 ```sh
 HYPERFRAMES_NO_TELEMETRY=1 XDG_CACHE_HOME=/workspace/.cache \
   npx --yes --cache /workspace/.npm-cache hyperframes@0.8.185 snapshot ./lama-motion \
-  --at 1.2,2.9,4.4,5.9,7.4,8.9,11.1 --output ./lama-motion/review-transparent
+  --at 1.2,2.9,4.4,5.9,7.4,8.9,11.1 --output ./lama-motion/review-lettering
 ```
 
 Asl skill ko‘k aksent va olti rejimli nuqtalar sahnasiga mo‘ljallangan.

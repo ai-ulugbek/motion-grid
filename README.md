@@ -12,6 +12,9 @@ Ichimliklar va maskot shaffof PNG’lardan joylashtirilgan.
 
 Ta’mlar: OREO, BANAN & XURMO, MARAKUYA, MATCHA, ANANAS.
 
+Yozuvlar: **Bubbly Humble**, logo rangida (`#FF5266`). Logo ostida **Not Just Tea**,
+video yakunida **Not Jus Tea**.
+
 - [Animatsiya manbasi](lama-motion/index.html)
 - [Ssenariy va qayta render qilish](lama-motion/README.md)
 - [Asos bo‘lgan skill](.agents/skills/bs-launchmotion-type-demonstrate-parameter-system/SKILL.md)
