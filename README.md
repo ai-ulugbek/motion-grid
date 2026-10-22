@@ -5,6 +5,9 @@ Chapdagi ta’m nomi ajratilganda o‘ngda mos ichimlik chiqadi. Logo va maskot 
 
 **[MP4 videoni yuklab olish](lama-motion.mp4)**
 
+Ichimliklar va maskot shaffof PNG’lardan joylashtirilgan.
+[Oltita shaffof PNG’ni yuklab olish](lama-transparent-pngs.zip).
+
 ![Videodan kadr](lama-motion-preview.jpg)
 
 Ta’mlar: OREO, BANAN & XURMO, MARAKUYA, MATCHA, ANANAS.
@@ -13,5 +16,6 @@ Ta’mlar: OREO, BANAN & XURMO, MARAKUYA, MATCHA, ANANAS.
 - [Ssenariy va qayta render qilish](lama-motion/README.md)
 - [Asos bo‘lgan skill](.agents/skills/bs-launchmotion-type-demonstrate-parameter-system/SKILL.md)
 
-Video ovozsiz. Rasmlar, logo va maskot foydalanuvchi yuborgan materiallardan olingan.
+Video ovozsiz. Rasmlar, logo va maskot foydalanuvchi yuborgan materiallar asosida tayyorlangan;
+ichimliklar va maskotning foni ImageGen yordamida olib tashlangan.
 Uchinchi tomon kutubxonalari va shrift haqidagi ma’lumotlar [bu yerda](lama-motion/THIRD_PARTY_NOTICES.md).

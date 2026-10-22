@@ -19,8 +19,12 @@ Logo yuqorida, maskot pastki o‘ng burchakda. Ovoz va musiqa qo‘shilmagan.
 ## Materiallar
 
 `assets/` ichida foydalanuvchi yuborgan `lama_motion_optimized.zip` arxividan
-olingan asl rasmlar joylashgan. Mahsulotlar o‘zgartirilmagan; suratlarning
-kadr chegaralari CSS orqali tanlangan. Logo asl rangida saqlangan.
+olingan asl rasmlar saqlangan. `assets/transparent/` ichida ImageGen yordamida
+fonlari olib tashlangan beshta ichimlik va maskotning RGBA PNG variantlari bor.
+Sahnada aynan shaffof variantlar ishlatiladi: surat kartalari va maskotning
+to‘rtburchak foni olib tashlangan. Logo asl faylidan, asl rangida ishlatiladi.
+
+`../lama-transparent-pngs.zip` ushbu oltita shaffof PNG’ni o‘z ichiga oladi.
 
 `index.html` — render qilinadigan sahna, GSAP vaqt jadvali va joylashuv.
 `content.json` — ta’mlar, fayl nomlari va boshlanish vaqtlarining ma’lumotnomasi;
@@ -41,7 +45,7 @@ Kadrlarni tekshirish:
 ```sh
 HYPERFRAMES_NO_TELEMETRY=1 XDG_CACHE_HOME=/workspace/.cache \
   npx --yes --cache /workspace/.npm-cache hyperframes@0.8.185 snapshot ./lama-motion \
-  --at 1.2,2.9,4.4,5.9,7.4,8.9,11.1 --output ./lama-motion/review-final
+  --at 1.2,2.9,4.4,5.9,7.4,8.9,11.1 --output ./lama-motion/review-transparent
 ```
 
 Asl skill ko‘k aksent va olti rejimli nuqtalar sahnasiga mo‘ljallangan.
