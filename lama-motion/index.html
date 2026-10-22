@@ -25,8 +25,8 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F7F2E8}
 .drink{position:absolute;left:62px;top:0;width:540px;height:790px;opacity:0;filter:drop-shadow(0 26px 22px #66544322)}
 .drink img{width:100%;height:100%;object-fit:contain;object-position:50% 50%;display:block}
 #mascot{position:absolute;right:77px;bottom:46px;width:180px;height:198px;object-fit:contain;transform-origin:50% 100%}
-#final{position:absolute;left:140px;bottom:110px;height:80px;opacity:0;color:#FF5266}
-#final img{display:block;height:100%;width:auto;max-width:800px;object-fit:contain;object-position:left center}
+#final{position:absolute;left:140px;bottom:110px;width:640px;height:80px;opacity:0;color:#FF5266}
+#final img{display:block;height:100%;width:100%;object-fit:contain;object-position:center}
 #counter{position:absolute;left:144px;bottom:92px;font-size:18px;letter-spacing:.12em;color:#6D6258}
 </style>
 </head>
@@ -51,7 +51,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F7F2E8}
 </div>
 <img id="mascot" src="assets/transparent/mascot.png" alt="LAMA maskoti">
 <div id="counter">01 / 05</div>
-<div id="final"><img src="assets/lettering/outro.svg" alt="Not Jus Tea"></div>
+<div id="final"><img src="assets/lettering/outro.svg" alt="Not Just Tea"></div>
 </main>
 <script>
 const tl=gsap.timeline({paused:true});
@@ -79,9 +79,10 @@ for(let i=0;i<5;i++){
   }
 }
 tl.to(['#list','#title','#counter'],{opacity:0,y:-20,duration:.45},9.6);
+tl.to('#logo',{x:201.5,y:655,duration:.95,ease:'expo.inOut'},9.6);
 tl.to('#stage',{x:-60,scale:1.04,duration:.8,ease:'expo.inOut'},9.65);
 tl.to('#mascot',{y:-14,rotation:5,duration:.32,yoyo:true,repeat:1,ease:'sine.inOut'},9.9);
-tl.fromTo('#final',{opacity:0,y:25},{opacity:1,y:0,duration:.65,ease:'expo.out'},9.95);
+tl.fromTo('#final',{opacity:0,y:25},{opacity:1,y:0,duration:.65,ease:'expo.out'},10.35);
 </script>
 </body>
 </html>

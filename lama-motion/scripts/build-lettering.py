@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build outlined scene lettering from a user-supplied Bubbly Humble font.
+"""Build Bubbly Humble flavor labels and mixed-case DynaPuff slogans.
 
 Requires fonttools and uharfbuzz. Font binaries are kept outside the repository.
 """
@@ -11,6 +11,7 @@ from pathlib import Path
 from fontTools.pens.boundsPen import BoundsPen
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.ttLib import TTFont
+from fontTools.varLib.instancer import instantiateVariableFont
 import uharfbuzz as hb
 
 
@@ -21,21 +22,29 @@ LABELS = {
     "matcha": "MATCHA",
     "ananas": "ANANAS",
     "tagline": "Not Just Tea",
-    "outro": "Not Jus Tea",
+    "outro": "Not Just Tea",
 }
 
 
-def make_svg(font_path, text, color):
+def make_svg(font_path, text, color, expected_family="Bubbly Humble"):
     font = TTFont(font_path)
     family = font["name"].getDebugName(1)
-    if family != "Bubbly Humble":
-        raise ValueError(f"Expected Bubbly Humble; received {family!r}")
+    if family != expected_family:
+        raise ValueError(f"Expected {expected_family}; received {family!r}")
+    variations = {}
+    if "fvar" in font:
+        variations = {axis.axisTag: axis.defaultValue for axis in font["fvar"].axes}
+        if "wght" in variations:
+            variations["wght"] = 700
+        font = instantiateVariableFont(font, variations, inplace=False)
     glyphs = font.getGlyphSet()
     order = font.getGlyphOrder()
     face = hb.Face(font_path.read_bytes())
     shaping_font = hb.Font(face)
     shaping_font.scale = (face.upem, face.upem)
     hb.ot_font_set_funcs(shaping_font)
+    if variations:
+        shaping_font.set_variations(variations)
     buffer = hb.Buffer()
     buffer.add_str(text)
     buffer.guess_segment_properties()
@@ -80,13 +89,18 @@ def make_svg(font_path, text, color):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("font", type=Path)
+    parser.add_argument("--tagline-font", type=Path, default=Path(__file__).resolve().parents[1] / "assets/fonts/DynaPuff.ttf")
     parser.add_argument("--color", default="#FF5266")
     parser.add_argument("--out", type=Path, default=Path(__file__).resolve().parents[1] / "assets/lettering")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     for slug, text in LABELS.items():
         target = args.out / f"{slug}.svg"
-        target.write_text(make_svg(args.font, text, args.color), encoding="utf-8")
+        if slug in ("tagline", "outro"):
+            svg = make_svg(args.tagline_font, text, args.color, expected_family="DynaPuff")
+        else:
+            svg = make_svg(args.font, text, args.color)
+        target.write_text(svg, encoding="utf-8")
         print(f"{target.name}: {text}")
 
 

@@ -9,15 +9,22 @@ Logo yuqorida, maskot pastki o‘ng burchakda. Ovoz va musiqa qo‘shilmagan.
 Foydalanuvchi tanlagan shrift — **Bubbly Humble**, Minimalist Eyes.
 Rasmiy manba: https://www.creativefabrica.com/product/bubbly-humble/.
 Foydalanuvchi yuborgan `Bubbly-Humble-149666812.zip` arxividagi asl OTF fayli ishlatilgan.
-Ta’m nomlari, logo ostidagi yozuv va yakuniy yozuv HarfBuzz orqali shakllantirilgan va
+Ta’m nomlari ushbu shriftda saqlangan. Bu shriftning kichik harf gliflari katta
+harflar bilan bir xil bo‘lgani uchun, bosh-kichik harflar bilan yozilgan shiorga
+**DynaPuff Bold** ishlatilgan. DynaPuff SIL Open Font License 1.1 asosida
+`assets/fonts/` ichida litsenziyasi bilan saqlangan.
+
+Barcha yozuvlar HarfBuzz orqali shakllantirilgan va
 `assets/lettering/` ichida SVG konturlar sifatida saqlangan. Shu sabab qayta render
-uchun alohida shrift o‘rnatish kerak emas. Asl shrift fayli repozitoriyga kiritilmagan.
+uchun alohida shrift o‘rnatish kerak emas. Bubbly Humble’ning asl shrift fayli
+repozitoriyga kiritilmagan.
 
 Matn va rang:
 
 - Matn rangi logo faylidagi asosiy rangga mos: `#FF5266`.
 - Logo ostida: `Not Just Tea`.
-- Yakunda: `Not Jus Tea` — foydalanuvchi aynan shunday yozgan.
+- Yakunda: `Not Just Tea` — bosh-kichik harflar bilan.
+- Yakuniy sahnada LAMA logosi yuqoridan pastga tushib, shiorning tepasida markazlashadi.
 
 Yozuv matnlarini almashtirish uchun `scripts/build-lettering.py` ichidagi `LABELS`
 qiymatlarini o‘zgartiring va o‘zingizdagi asl shrift fayli bilan qayta yarating.
@@ -39,7 +46,7 @@ HTMLdagi `alt` matnlarini va `content.json` ma’lumotlarini ham moslang.
 | 5–6,5 s | MARAKUYA |
 | 6,5–8 s | MATCHA |
 | 8–9,5 s | ANANAS |
-| 9,5–11,5 s | Oxirgi ichimlik, logo va maskot bilan yakun |
+| 9,5–11,5 s | LAMA logosi pastga tushadi, ostida Not Just Tea paydo bo‘ladi; oxirgi ichimlik va maskot qoladi |
 
 ## Materiallar
 

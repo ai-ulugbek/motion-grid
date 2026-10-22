@@ -5,6 +5,8 @@ Chapdagi ta’m nomi ajratilganda o‘ngda mos ichimlik chiqadi. Logo va maskot 
 
 **[MP4 videoni yuklab olish](lama-motion.mp4)**
 
+[Yakuniy kadrni ko‘rish](lama-motion-ending.jpg)
+
 Ichimliklar va maskot shaffof PNG’lardan joylashtirilgan.
 [Oltita shaffof PNG’ni yuklab olish](lama-transparent-pngs.zip).
 
@@ -12,8 +14,9 @@ Ichimliklar va maskot shaffof PNG’lardan joylashtirilgan.
 
 Ta’mlar: OREO, BANAN & XURMO, MARAKUYA, MATCHA, ANANAS.
 
-Yozuvlar: **Bubbly Humble**, logo rangida (`#FF5266`). Logo ostida **Not Just Tea**,
-video yakunida **Not Jus Tea**.
+Ta’m nomlari: **Bubbly Humble**, logo rangida (`#FF5266`). Shior **DynaPuff Bold**
+shriftida aynan **Not Just Tea** ko‘rinishida yozilgan. Video yakunida LAMA logosi
+pastga tushib, shiorning tepasida joylashadi.
 
 - [Animatsiya manbasi](lama-motion/index.html)
 - [Ssenariy va qayta render qilish](lama-motion/README.md)
